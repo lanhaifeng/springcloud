@@ -25,8 +25,6 @@ allprojects {
     version '1.0-SNAPSHOT'
     apply plugin: 'idea'
     apply plugin: 'java'
-    apply plugin: 'eclipse'
-
 }
 
 subprojects {
@@ -39,7 +37,7 @@ subprojects {
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 
     ext {
-        springCloudVersion = 'Edgware.SR2'
+        springCloudVersion = 'Edgware.SR5'
     }
 
     repositories {
