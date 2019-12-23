@@ -14,7 +14,7 @@ VOLUME ["/data"]
 EXPOSE 8167
 
 #定义参数
-ARG JAR_FILE
+ARG JAR_FILE=*.jar
 
 #拷贝本地文件到镜像中
 COPY ${JAR_FILE} eureka.jar
