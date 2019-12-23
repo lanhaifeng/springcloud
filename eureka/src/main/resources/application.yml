@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: feng-eureka
+server:
+  port: 8761
+security:
+  basic:
+    enabled: true
+  user:
+    name: eureka
+    password: eurekamchz
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
