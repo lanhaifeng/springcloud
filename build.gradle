@@ -1,58 +1,54 @@
 buildscript {
-    ext{
-        springBootVersion = '1.5.10.RELEASE'
-    }
+    //应用自定义版本脚本
+    apply from: "globalVersion.gradle"
+    apply from: "versionConfig.gradle"
+
     repositories {
+        maven{ url "https://maven.aliyun.com/repository/central"}
+        maven{ url "https://maven.aliyun.com/repository/spring"}
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-repositories {
-    mavenCentral()
-}
-
 allprojects {
-    group 'com.feng.springcloud'
-    version '1.0-SNAPSHOT'
-    apply plugin: 'idea'
-    apply plugin: 'java'
+    group "com.feng.springcloud"
+    version "1.0-SNAPSHOT"
+    apply plugin: "idea"
+    apply plugin: "java"
 }
 
 subprojects {
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+    repositories {
+        maven{ url "https://maven.aliyun.com/repository/central"}
+        maven{ url "https://maven.aliyun.com/repository/spring"}
+        mavenCentral()
+    }
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
-    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = "UTF-8"
 
-    ext {
-        springCloudVersion = 'Edgware.SR5'
-    }
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
 
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
     dependencies{
-        compile('org.springframework.boot:spring-boot-starter-web')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile("org.springframework.boot:spring-boot-starter-web")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 
     dependencyManagement {
         imports {
             //加上此配置后，如果需要引用springcloud的组件，就不需要再提供版本信息
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+        }
+
+        dependencies {
+            dependency "com.alibaba:fastjson:$fastjsonVersion"
+            dependency "org.projectlombok:lombok:$lombokVersion"
         }
     }
 }

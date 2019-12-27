@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: feng-producer
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eurekamchz@127.0.0.1:8761/eureka/

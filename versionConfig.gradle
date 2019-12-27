@@ -1,0 +1,4 @@
+ext {
+    fastjsonVersion = "1.2.51"
+    lombokVersion = "1.16.20"
+}

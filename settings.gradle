@@ -1,2 +1,5 @@
-rootProject.name = 'springcloud'
-include 'eureka'
+rootProject.name = "springcloud"
+include "eureka"
+include "consumer"
+include 'producer'
+
