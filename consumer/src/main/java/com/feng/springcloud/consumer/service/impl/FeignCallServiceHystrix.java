@@ -17,4 +17,9 @@ public class FeignCallServiceHystrix implements FeignCallService {
 	public String helloWorld(String name) {
 		return "抱歉helloWorld服务无法访问,参数：" + name;
 	}
+
+    @Override
+    public String notExistService() {
+        return "该服务不存在，请检查服务名";
+    }
 }

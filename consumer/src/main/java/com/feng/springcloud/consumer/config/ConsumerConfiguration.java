@@ -1,5 +1,6 @@
 package com.feng.springcloud.consumer.config;
 
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
@@ -21,6 +22,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 //启用feiginClient功能
 @EnableFeignClients(basePackages = "com.feng.springcloud.consumer")
+//启用对Hystrix的支持，在控制器中使用@HystrixCommand为restful提供熔断和降级
+@EnableCircuitBreaker
 @ComponentScan("com.feng.springcloud.consumer")
 public class ConsumerConfiguration {
 

@@ -40,11 +40,17 @@ public class CallServiceTest {
 	private String result;
 
 	@Test
-	@Ignore
-	public void feignCallTest() {
+//	@Ignore
+	public void feignCallTest1() {
 		result = feignCallService.helloWorld("feign");
 		Assert.assertTrue("调用服务返回非期待结果:" + result, "hi,feign,I am is producer".equals(result));
 	}
+
+    @Test
+    public void feignCallTest2() {
+        result = feignCallService.notExistService();
+        Assert.assertTrue("调用服务返回非期待结果:" + result, "该服务不存在，请检查服务名".equals(result));
+    }
 
 	@Test
 	@Ignore

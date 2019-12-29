@@ -49,6 +49,7 @@ subprojects {
         dependencies {
             dependency "com.alibaba:fastjson:$fastjsonVersion"
             dependency "org.projectlombok:lombok:$lombokVersion"
+            dependency "commons-lang:commons-lang:$commonLangVersion"
         }
     }
 }

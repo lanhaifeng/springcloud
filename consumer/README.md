@@ -1,4 +1,4 @@
-### 服务间调用
+### 服务间调用熔断与降级
 1. Ribbon+RestTemplate
     Ribbon是一个基于HTTP和TCP客户端的负载均衡器
     
@@ -9,3 +9,6 @@
 3. 纯RestTemplate
     利用eureka中DiscoveryClient通过服务名拿到服务对应前缀，类似https://127.0.0.1:9090
     使用RestTemplate直接访问restApi
+
+### 对外rest接口提供熔断和降级
+1. hystrix还提供了对外rest服务的熔断和降级

@@ -1,7 +1,9 @@
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
     compile("org.springframework.cloud:spring-cloud-starter-feign")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile("org.springframework.cloud:spring-cloud-starter-ribbon")
+    compile("commons-lang:commons-lang")
 
     compileOnly "org.projectlombok:lombok"
 }
